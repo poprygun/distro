@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>distro</artifactId>
+        <groupId>io.microsamples.packaging</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>distribution</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.microsamples.packaging</groupId>
+            <artifactId>ext</artifactId>
+            <version>1.0-20190307.221102-2</version>
+            <classifier>rsr</classifier>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>io.microsamples.packaging</groupId>
+            <artifactId>ext</artifactId>
+            <version>1.0-20190307.221102-2</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>concourse-it-releases</id>
+            <name>concourse-it-releases</name>
+            <url>http://127.0.0.1:8081/artifactory/concourse-it-repo</url>
+        </repository>
+    </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/release</outputDirectory>
+                            <includeTypes>zip</includeTypes>
+                            <includeArtifactIds>ext</includeArtifactIds>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                            <includeTypes>jar</includeTypes>
+                            <includeArtifactIds>ext</includeArtifactIds>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
