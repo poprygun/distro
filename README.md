@@ -23,7 +23,7 @@ Project relies on private Artifactory.
 
 ## Release resources order
 
-Order of resources overlay is defined in `distribution` module pom.xml file.
+Order of resources overlay is defined in `distribution` module [pom.xml file](https://github.com/poprygun/distro/blob/master/distribution/pom.xml#L74).
 
 ```
 <plugin>
