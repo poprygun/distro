@@ -15,14 +15,26 @@
         <dependency>
             <groupId>io.microsamples.packaging</groupId>
             <artifactId>ext</artifactId>
-            <version>1.0-20190307.221102-2</version>
+            <version>1.0-20190308.140904-3</version>
+            <classifier>rsr</classifier>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>io.microsamples.packaging</groupId>
+            <artifactId>ext-2</artifactId>
+            <version>1.0-20190308.140251-1</version>
             <classifier>rsr</classifier>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>io.microsamples.packaging</groupId>
             <artifactId>ext</artifactId>
-            <version>1.0-20190307.221102-2</version>
+            <version>1.0-20190308.140904-3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.microsamples.packaging</groupId>
+            <artifactId>ext-2</artifactId>
+            <version>1.0-20190308.140251-1</version>
         </dependency>
     </dependencies>
     <repositories>
@@ -47,7 +59,7 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/release</outputDirectory>
                             <includeTypes>zip</includeTypes>
-                            <includeArtifactIds>ext</includeArtifactIds>
+                            <includeArtifactIds>ext-2,ext</includeArtifactIds>
                         </configuration>
                     </execution>
                     <execution>
@@ -59,12 +71,11 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
                             <includeTypes>jar</includeTypes>
-                            <includeArtifactIds>ext</includeArtifactIds>
+                            <includeArtifactIds>ext-2,ext</includeArtifactIds>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>

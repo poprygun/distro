@@ -11,6 +11,7 @@
     <modules>
         <module>ext</module>
         <module>distribution</module>
+        <module>ext-2</module>
     </modules>
 
     <name>distro</name>
